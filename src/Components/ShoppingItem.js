@@ -17,7 +17,7 @@ const ShoppingItem = ({item}) => {
         <img className="card-img-top" src={item.thumbnail} alt={item.title} />
         <div className="card-body">
             <h5 className="card-title">{item.title}</h5>
-            <p className="m-0">{item.price}</p>
+            <p className="m-0">${item.price}</p>
             <p className="card-text">Rating : {item.rating}</p>
         </div>
         {

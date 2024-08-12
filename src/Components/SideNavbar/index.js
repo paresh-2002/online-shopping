@@ -10,6 +10,8 @@ const navigate = useNavigate()
 
 
 const userLogOut = JSON.parse(localStorage.getItem('usersData'));
+console.log(userLogOut);
+
   const handleUserLogout = () => {
     localStorage.removeItem('usersData');
     navigate('/users/sign_in');
