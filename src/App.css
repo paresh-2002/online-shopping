@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.link-list a{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  padding: 15px;
+}
