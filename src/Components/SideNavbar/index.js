@@ -1,10 +1,22 @@
 import React from 'react'
 import { IoMdHome } from "react-icons/io";
-import { MdOutlineShoppingCart } from "react-icons/md";
-import { Link } from 'react-router-dom';
+import { MdLogout, MdOutlineShoppingCart } from "react-icons/md";
+import { Link, useNavigate } from 'react-router-dom';
 const SideNavbar = ({
   isActive, setIsActive
 }) => {
+const navigate = useNavigate()
+
+
+
+const userLogOut = JSON.parse(localStorage.getItem('usersData'));
+  const handleUserLogout = () => {
+    localStorage.removeItem('usersData');
+    navigate('/users/sign_in');
+    console.log('Click');
+  
+  }
+
   return (
     <div className="flex-shrink-0 p-3 text-bg-dark min-w-[20%] flex flex-col justify-between ">
       <div>
@@ -35,6 +47,9 @@ const SideNavbar = ({
               <img src="https://github.com/mdo.png" alt="" width="32" height="32" className="rounded-circle me-2"/>
               <strong>Leo</strong>
             </Link>
+            <button >
+              <MdLogout className='w-[20px] h-[20px] hover:text-gray-300 cursor-pointer' onClick={handleUserLogout}/>
+            </button>
           </div>
         </div>
       </div>
