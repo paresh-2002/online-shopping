@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     element: <App/>,
     children:[
       {path:'/', element:<ShoppingItems/>},
-      {path:'orders', element:<Orders/>},
+      {path:'/orders', element:<Orders/>},
     ]
   },
   {path:'users/sign_in', element:<UserForm isSignInPage={true} />},

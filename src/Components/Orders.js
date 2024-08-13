@@ -10,13 +10,13 @@ const Orders = () => {
     // const finalItems = items.filter((item) => orderItems.includes(item.id));
   });
   return (
-    <div className="h-[72%] overflow-auto m-3">
+    <div className="">
     {
       finalItems >=0  ? 
-      <div className='flex h-full justify-center items-center '>
+      <div className='flex flex-wrap  items-start justify-center '>
       <p>Data is Not Found</p>
       </div>:
-      <div className='flex flex-wrap  gap-2'>
+      <div className='flex flex-wrap gap-2'>
         {
           finalItems.map(item =>(
             <Order key={item.id} item={item}/>

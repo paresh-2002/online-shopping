@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Input from './Input';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const UserForm = ({ isSignInPage = false }) => {
   const [data, setData] = useState({
@@ -42,6 +42,7 @@ const UserForm = ({ isSignInPage = false }) => {
   };
 
   return (
+    
     <div className="w-full h-screen flex justify-center items-center bg-dark">
       <div
         className="w-1/3 shadow-lg rounded-md bg-dark p-5 flex flex-col "
