@@ -6,24 +6,16 @@ const SideNavbar = ({
   isActive, setIsActive
 }) => {
 const navigate = useNavigate()
-
-
-
-const userLogOut = JSON.parse(localStorage.getItem('usersData'));
-console.log(userLogOut);
-
   const handleUserLogout = () => {
     localStorage.removeItem('usersData');
     navigate('/users/sign_in');
-    console.log('Click');
-  
   }
 
   return (
     <div className="flex-shrink-0 p-3 text-bg-dark min-w-[20%] flex flex-col justify-between ">
       <div>
         <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <svg className="bi pe-none me-2" width="40" height="32"></svg>
+          {/* <img src="../../../public/bag.png" alt="" width="32" height="32" /> */}
           <span className="fs-4">Online Shopping</span>
         </a>
         <hr/>
