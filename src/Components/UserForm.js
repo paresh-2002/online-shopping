@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Input from './Input';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const UserForm = ({ isSignInPage = false }) => {
   const [data, setData] = useState({
@@ -42,17 +42,14 @@ const UserForm = ({ isSignInPage = false }) => {
   };
 
   return (
-    
-    <div className="w-full h-screen flex justify-center items-center bg-dark">
+    <div className="h-screen flex justify-center items-center bg-dark">
       <div
-        className="w-1/3 shadow-lg rounded-md bg-dark p-5 flex flex-col "
-        style={{ height: '500px' }}
-      >
+        className=" w-[400px] shadow-lg rounded-md bg-dark p-5 flex flex-col">
         <h2 className="text-center font-medium text-3xl mb-2 text-white">
           {isSignInPage ? 'SignIn' : 'SignUp'}
         </h2>
         
-        <form className="flex flex-1 flex-col justify-center items-center" onSubmit={handleSubmit}>
+        <form className=" w-full flex flex-1 flex-col m-auto" onSubmit={handleSubmit}>
           {!isSignInPage && (
             <Input
               placeholder="Name"
@@ -76,13 +73,13 @@ const UserForm = ({ isSignInPage = false }) => {
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
           <button
-            className="text-white text-decoration-none flex justify-center p-2 rounded-md w-1/2 self-center bg-cyan-800 text-white hover:bg-cyan-900 mt-12"
+            className="text-white text-decoration-none flex justify-center p-2 rounded-md w-full self-center bg-cyan-800 text-white hover:bg-cyan-900 mt-12"
             type="submit"
           >
             <span>{isSignInPage ? 'Sign In' : 'Sign Up'}</span>
           </button>
         </form>
-        <p className="text-sm text-center text-white">
+        <p className="text-sm text-center text-white mt-2">
           {isSignInPage ? 'New Create account?' : 'Already have an account?'}
           <span
             onClick={() => navigate(`/users/${isSignInPage ? 'sign_up' : 'sign_in'}`)}

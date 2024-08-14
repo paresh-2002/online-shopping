@@ -8,7 +8,7 @@ const Input = ({
     isRequired=true
 }) => {
   return (
-      <input className='w-1/2 mt-3 border-2 outline-none p-2 rounded-md' type={type} placeholder={placeholder} onChange={onChange} value={value} required={isRequired}/>
+      <input className='w-full mt-3 border-2 outline-none p-2 rounded-md' type={type} placeholder={placeholder} onChange={onChange} value={value} required={isRequired}/>
   )
 }
 
