@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import {createBrowserRouter, Navigate, RouterProvider} from 'react-router-dom'
+import {createBrowserRouter,  RouterProvider} from 'react-router-dom'
 import UserForm from './Components/UserForm';
 import App from './App';
 import ShoppingItems from './Components/ShoppingItems';
@@ -18,7 +18,6 @@ const router = createBrowserRouter([
       {path:'/orders', element:<Orders/>},
     ]
   },
-  
   {path:'users/sign_in', element:<UserForm isSignInPage={true} />},
   {path:'users/sign_up', element:<UserForm isSignInPage={false}/>},
 ]);

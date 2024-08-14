@@ -12,9 +12,10 @@ import FetchPosts from './Components/FetchPosts';
 function App() {
   const [isActive, setIsActive] = useState('Home')
   const fetchStatus = useSelector((store) => store.fetchStatus);
+  
   return (
      <div className="w-full h-screen">
-      <Navigate to='/users/sign_in'/>
+        <Navigate to='/users/sign_in'/>
         <Navbar/>
         <div className="flex h-[69%]" >
         <SideNavbar isActive={isActive} setIsActive={setIsActive}  />

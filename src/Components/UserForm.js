@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Input from './Input';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const UserForm = ({ isSignInPage = false }) => {
   const [data, setData] = useState({
@@ -10,6 +10,7 @@ const UserForm = ({ isSignInPage = false }) => {
     password: ''
   });
   const navigate = useNavigate();
+  const location = useLocation()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ const UserForm = ({ isSignInPage = false }) => {
     if (isSignInPage) {
       const user = users.find(user => user.email === data.email && user.password === data.password);
       if (user) {
-        navigate('/');
+        location.pathname('/');
       } else {
         alert('Invalid email or password');
       }
@@ -43,8 +44,10 @@ const UserForm = ({ isSignInPage = false }) => {
 
   return (
     <div className="h-screen flex justify-center items-center bg-dark">
-      <div
-        className=" w-[400px] shadow-lg rounded-md bg-dark p-5 flex flex-col">
+      <div className=" w-[400px] shadow-lg rounded-md bg-dark p-5 flex flex-col">
+        <div className="d-flex align-items-center  text-white text-decoration-none justify-center ml-4">
+          <img src='/shop.png' alt="" width="100" height="100" className="rounded-circle me-2"/>
+        </div>
         <h2 className="text-center font-medium text-3xl mb-2 text-white">
           {isSignInPage ? 'SignIn' : 'SignUp'}
         </h2>
