@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
 import Input from './Input';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const UserForm = ({ isSignInPage = false }) => {
+  
   const [data, setData] = useState({
     id:Date.now(),
     ...(!isSignInPage && { name: '' }),
     email: '',
     password: ''
   });
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   const navigate = useNavigate();
-  const location = useLocation()
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
     let users = JSON.parse(localStorage.getItem('usersData')) || [];
-
     if (isSignInPage) {
       const user = users.find(user => user.email === data.email && user.password === data.password);
       if (user) {
-        location.pathname('/');
+        navigate('/');
       } else {
         alert('Invalid email or password');
       }
@@ -68,13 +72,19 @@ const UserForm = ({ isSignInPage = false }) => {
             isRequired
             onChange={(e) => setData({ ...data, email: e.target.value })}
           />
+          <div className="flex items-center justify-end">
           <Input
-            type="password"
+            id="password"
+            type={showPassword ? 'text' : 'password'}
             placeholder="Password"
             value={data.password}
             isRequired
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
+          <span onClick={togglePasswordVisibility} className='mt-3 mr-2 absolute '>
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
+          </div>
           <button
             className="text-white text-decoration-none flex justify-center p-2 rounded-md w-full self-center bg-cyan-800 text-white hover:bg-cyan-900 mt-12"
             type="submit"
